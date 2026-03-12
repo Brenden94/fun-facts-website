@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fun Facts Website</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      padding: 50px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      margin: auto;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h1 {
+      color: #2c3e50;
+      animation: bounce 2s infinite;
+    }
+
+    #fact {
+      font-size: 18px;
+      margin: 20px 0;
+      color: #34495e;
+      min-height: 50px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      margin: 10px 0;
+      box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #3498db;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      transition: 0.3s;
+      background: #2980b9;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes bounce {
+      0%,100% {transform: translateY(0);}
+      50% {transform: translateY(-10px);}
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>🎉 Fun Facts 🎉</h1>
+    <img id="factImage" src="https://picsum.photos/200/150" alt="Fun Image">
+    <p id="fact">Click the button to see a fun fact!</p>
+    <button onclick="showFact()">Next Fact</button>
+  </div>
+
+  <script>
+    const facts = [
+      { text: "Bananas are berries, but strawberries aren’t.", img: "https://picsum.photos/200/150?1" },
+      { text: "A day on Venus is longer than a year on Venus.", img: "https://picsum.photos/200/150?2" },
+      { text: "The shortest war in history lasted only 38 minutes.", img: "https://picsum.photos/200/150?3" },
+      { text: "Honey never spoils.", img: "https://picsum.photos/200/150?4" },
+      { text: "Octopuses have three hearts.", img: "https://picsum.photos/200/150?5" },
+      { text: "Sharks existed before trees.", img: "https://picsum.photos/200/150?6" },
+      { text: "A group of flamingos is called a flamboyance.", img: "https://picsum.photos/200/150?7" },
+      { text: "The unicorn is Scotland’s national animal.", img: "https://picsum.photos/200/150?8" },
+      { text: "Wombat poop is cube-shaped.", img: "https://picsum.photos/200/150?9" },
+      { text: "Humans share 50% of their DNA with bananas.", img: "https://picsum.photos/200/150?10" }
+    ];
+
+    function showFact() {
+      const random = Math.floor(Math.random() * facts.length);
+      document.getElementById("fact").innerText = facts[random].text;
+      document.getElementById("factImage").src = facts[random].img;
+    }
+  </script>
+
+</body>
+</html>
